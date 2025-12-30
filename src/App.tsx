@@ -66,7 +66,7 @@ const App: React.FC = () => {
           <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-white/60 rounded-full animate-spin" style={{ animationDirection: 'reverse', animationDuration: '0.8s' }}></div>
         </div>
         <div className="text-white text-2xl font-semibold mt-4">Loading your year in review...</div>
-        <div className="text-white/70 text-sm mt-2">This may take a moment</div>
+        <div className="text-white text-sm mt-2 opacity-90">This may take a moment</div>
       </div>
     );
   }
@@ -228,7 +228,7 @@ const App: React.FC = () => {
         }}>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl font-bold mb-6">Keep Learning!</h2>
-          <p className="text-xl mb-8 text-white/95">
+          <p className="text-xl mb-8 text-white font-medium">
             You've made incredible progress this year. Keep up the amazing work and continue your learning journey!
           </p>
           <div className="flex justify-center gap-4">

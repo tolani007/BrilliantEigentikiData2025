@@ -2,6 +2,8 @@ import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Course } from '../types';
+import { duolingoBounce, duolingoHover, duolingoTap } from '../hooks/useDuolingoAnimations';
+import { playClickSound } from '../utils/sounds';
 
 interface CourseCardProps {
   course: Course;
@@ -26,14 +28,10 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.25, delay: index * 0.03, ease: [0.25, 0.1, 0.25, 1] }}
-      whileHover={{ 
-        scale: 1.03, 
-        y: -8,
-        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)',
-        transition: { duration: 0.2, ease: 'easeOut' }
-      }}
-      whileTap={{ scale: 0.98 }}
+      transition={{ ...duolingoBounce, delay: index * 0.03 }}
+      whileHover={duolingoHover}
+      whileTap={duolingoTap}
+      onHoverStart={() => playClickSound()}
       className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-white/30 dark:border-gray-700/50 relative overflow-hidden group cursor-pointer"
       style={{
         background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',

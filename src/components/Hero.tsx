@@ -2,6 +2,8 @@ import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import BrilliantLogo from './BrilliantLogo';
 import { getParticleCount, shouldReduceAnimations } from '../utils/performance';
+import { duolingoBounce, duolingoHover, duolingoTap } from '../hooks/useDuolingoAnimations';
+import { playClickSound } from '../utils/sounds';
 
 const Hero: React.FC = () => {
   const particleCount = useMemo(() => getParticleCount(8), []);
@@ -82,14 +84,32 @@ const Hero: React.FC = () => {
           className="flex justify-center"
         >
           <motion.button
-            className="px-8 py-4 bg-white/20 backdrop-blur-md text-white rounded-full font-semibold text-lg shadow-2xl border border-white/30 hover:bg-white/30 transition-all"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 bg-white text-gray-900 rounded-full font-bold text-lg shadow-2xl border-2 border-white/50 hover:bg-gray-50 transition-all relative overflow-hidden group"
+            whileHover={duolingoHover}
+            whileTap={duolingoTap}
+            onHoverStart={() => playClickSound()}
             onClick={() => {
+              playClickSound();
               window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
             }}
+            animate={{
+              boxShadow: [
+                '0 10px 30px rgba(0, 0, 0, 0.2)',
+                '0 15px 35px rgba(0, 0, 0, 0.25)',
+                '0 10px 30px rgba(0, 0, 0, 0.2)',
+              ],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
           >
-            Explore Your Stats
+            <span className="relative z-10 drop-shadow-sm font-extrabold">Explore Your Stats</span>
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            </div>
           </motion.button>
         </motion.div>
       </div>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { getAnimationDuration, shouldReduceAnimations } from '../utils/performance';
+import { duolingoBounce, duolingoHover, duolingoTap } from '../hooks/useDuolingoAnimations';
+import { playClickSound, playSuccessSound } from '../utils/sounds';
 
 interface StatCardProps {
   title: string;
@@ -64,13 +66,16 @@ const StatCard: React.FC<StatCardProps> = ({
       ref={ref}
       initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={reduceMotion ? { duration: 0.1 } : { duration: 0.3, delay, ease: [0.25, 0.1, 0.25, 1] }}
-      whileHover={{ 
-        scale: 1.03, 
-        y: -5,
-        transition: { duration: 0.2, ease: 'easeOut' }
+      transition={reduceMotion ? { duration: 0.1 } : { ...duolingoBounce, delay }}
+      whileHover={duolingoHover}
+      whileTap={duolingoTap}
+      onHoverStart={() => playClickSound()}
+      onAnimationComplete={() => {
+        // Play success sound when counting completes
+        if (displayValue === value) {
+          playSuccessSound();
+        }
       }}
-      whileTap={{ scale: 0.98 }}
       className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border border-white/30 dark:border-gray-700/50 relative overflow-hidden group cursor-pointer"
       style={{
         background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',

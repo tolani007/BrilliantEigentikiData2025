@@ -2,6 +2,8 @@ import React, { useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+import { duolingoBounce, duolingoHover, duolingoTap } from '../hooks/useDuolingoAnimations';
+import { playClickSound } from '../utils/sounds';
 
 interface TimelineProps {
   dailyActivity: Record<string, number>;
@@ -74,11 +76,11 @@ const Timeline: React.FC<TimelineProps> = ({ dailyActivity, monthlyActivity }) =
                 transition={{ duration: 0.25, delay: index * 0.02, ease: [0.25, 0.1, 0.25, 1] }}
                 className="flex flex-col items-center"
               >
-                <motion.div 
+                  <motion.div 
                   className="w-full bg-gray-200 dark:bg-gray-700 rounded-b-lg overflow-hidden relative group/bar cursor-pointer" 
                   style={{ height: '150px' }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
+                  whileHover={{ scale: 1.05, transition: duolingoBounce }}
+                  onHoverStart={() => playClickSound()}
                 >
                   <motion.div
                     className="w-full bg-gradient-to-b from-brilliant-blue to-brilliant-lightBlue rounded-b-lg absolute bottom-0 group-hover/bar:from-brilliant-lightBlue group-hover/bar:to-brilliant-blue transition-all duration-300"
@@ -115,9 +117,10 @@ const Timeline: React.FC<TimelineProps> = ({ dailyActivity, monthlyActivity }) =
                   scale: 1.15, 
                   zIndex: 10,
                   boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
-                  transition: { duration: 0.2 }
+                  transition: duolingoBounce
                 }}
-                whileTap={{ scale: 1.05 }}
+                whileTap={duolingoTap}
+                onHoverStart={() => playClickSound()}
                 className={`aspect-square ${activity.color} rounded relative group cursor-pointer transition-all border-2 border-transparent hover:border-white/50 dark:hover:border-gray-300/50`}
                 title={`${dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}: ${count} ${count === 1 ? 'activity' : 'activities'} - ${activity.label}`}
               >

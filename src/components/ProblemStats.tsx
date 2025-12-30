@@ -2,6 +2,8 @@ import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { duolingoBounce, duolingoHover, duolingoTap } from '../hooks/useDuolingoAnimations';
+import { playClickSound, playSuccessSound } from '../utils/sounds';
 
 interface ProblemStatsProps {
   totalAttempted: number;
@@ -60,8 +62,10 @@ const ProblemStats: React.FC<ProblemStatsProps> = ({
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-          whileHover={{ scale: 1.05, y: -5, boxShadow: '0 20px 40px rgba(74, 144, 226, 0.3)' }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={duolingoHover}
+          whileTap={duolingoTap}
+          onHoverStart={() => playClickSound()}
+          onAnimationComplete={() => playSuccessSound()}
           className="bg-gradient-to-br from-brilliant-blue to-brilliant-darkBlue rounded-xl p-6 text-white cursor-pointer relative overflow-hidden group/card"
         >
           <div className="absolute inset-0 opacity-0 group-hover/card:opacity-20 transition-opacity duration-300 bg-white"></div>
@@ -75,8 +79,10 @@ const ProblemStats: React.FC<ProblemStatsProps> = ({
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.25, delay: 0.04, ease: [0.25, 0.1, 0.25, 1] }}
-          whileHover={{ scale: 1.05, y: -5, boxShadow: '0 20px 40px rgba(88, 204, 2, 0.3)' }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={duolingoHover}
+          whileTap={duolingoTap}
+          onHoverStart={() => playClickSound()}
+          onAnimationComplete={() => playSuccessSound()}
           className="bg-gradient-to-br from-duolingo-green to-duolingo-darkGreen rounded-xl p-6 text-white cursor-pointer relative overflow-hidden group/card"
         >
           <div className="absolute inset-0 opacity-0 group-hover/card:opacity-20 transition-opacity duration-300 bg-white"></div>
@@ -90,8 +96,10 @@ const ProblemStats: React.FC<ProblemStatsProps> = ({
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.3, delay: 0.1, ease: 'easeOut' }}
-          whileHover={{ scale: 1.05, y: -5, boxShadow: '0 20px 40px rgba(255, 107, 107, 0.3)' }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={duolingoHover}
+          whileTap={duolingoTap}
+          onHoverStart={() => playClickSound()}
+          onAnimationComplete={() => playSuccessSound()}
           className="bg-gradient-to-br from-accent-orange to-orange-600 rounded-xl p-6 text-white cursor-pointer relative overflow-hidden group/card"
         >
           <div className="absolute inset-0 opacity-0 group-hover/card:opacity-20 transition-opacity duration-300 bg-white"></div>

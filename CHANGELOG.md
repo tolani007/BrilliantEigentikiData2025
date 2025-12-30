@@ -5,6 +5,42 @@ All notable changes to this project will be documented in this file.
 ## [Latest] - 2025-01-XX
 
 ### Added
+- **Duolingo-style animations**: Implemented bouncy spring animations throughout the site
+  - Spring-based transitions with optimized stiffness and damping
+  - Playful hover and tap animations
+  - Celebration animations for achievements
+- **Sound effects**: Added Web Audio API-based sound system
+  - Click sounds for button interactions
+  - Success sounds for achievements and completions
+  - Hover sounds for interactive elements
+  - Card flip sounds for visual feedback
+- **Enhanced button visibility**: Improved "Explore Your Stats" button with solid white background and dark text
+- **Animation hooks**: Created `useDuolingoAnimations.ts` with reusable Duolingo-style animation configurations
+
+### Changed
+- **Button design**: "Explore Your Stats" button now has:
+  - Solid white background (`bg-white`) instead of transparent
+  - Dark text (`text-gray-900`) for maximum contrast
+  - Bold font weight for better visibility
+  - Duolingo-style spring animations
+- **Text visibility improvements**:
+  - Fixed loading screen text opacity
+  - Improved closing section text contrast
+  - Enhanced all button text visibility
+- **Animation system**: Replaced standard easing with Duolingo-style spring animations
+  - `duolingoSpring`: Standard spring (stiffness: 300, damping: 20)
+  - `duolingoBounce`: Bouncy spring (stiffness: 400, damping: 15)
+  - `duolingoSmooth`: Smooth spring (stiffness: 200, damping: 25)
+
+### Technical
+- Created `src/utils/sounds.ts` for sound effect management
+- Created `src/hooks/useDuolingoAnimations.ts` for animation configurations
+- Integrated sound effects into all interactive components
+- Applied Duolingo-style animations to StatCard, CourseCard, Timeline, and ProblemStats
+
+## Previous Updates - 2025-01-XX
+
+### Added
 - **Scroll-triggered animations**: Added smooth scroll animations to all sections using `SectionWrapper` and `SectionTitle` components
 - **Enhanced text contrast**: Improved text visibility across all components by updating color classes from gray-600/500 to gray-800/900
 - **Optimized animation performance**: Reduced animation durations and optimized easing functions for faster, smoother animations

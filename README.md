@@ -267,6 +267,29 @@ Configuration in `tailwind.config.js` - customize colors, fonts, and animations.
 ### React Scripts
 Standard Create React App configuration - see [CRA docs](https://create-react-app.dev/) for details.
 
+## 🚀 Deployment
+
+This project is ready to deploy! After pushing to GitHub, you can deploy on:
+
+### Quick Deploy Options
+
+**Vercel (Recommended):**
+1. Push to GitHub (see `QUICK_START.md`)
+2. Go to [vercel.com](https://vercel.com) and import your repository
+3. Vercel auto-detects React - just click "Deploy"
+4. Your site is live! 🎉
+
+**Netlify:**
+1. Push to GitHub (see `QUICK_START.md`)
+2. Go to [netlify.com](https://netlify.com) and import your repository
+3. Build command: `npm run build`
+4. Publish directory: `build`
+5. Deploy!
+
+**Live URL:** After deployment, update this README with your actual deployment URL.
+
+For detailed instructions, see `DEPLOYMENT.md` or `QUICK_START.md`.
+
 ## 📄 License
 
 This project is provided as-is for personal use with your Brilliant.org data.

@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ## [Latest] - 2025-01-XX
 
+### Fixed
+- **Text contrast in light mode**: Fixed all text visibility issues
+  - "Explore Your Stats" button text now explicitly uses `text-gray-900` for maximum contrast
+  - All StatCard text updated from gray-700/800 to gray-900
+  - CourseCard text enhanced (gray-800/700 → gray-900)
+  - Timeline text improved (gray-700/800 → gray-900)
+  - ProgressBar label text contrast fixed
+  - Closing section cards maintain white text on semi-transparent backgrounds
+- **Contrast rules applied**:
+  - Dark text (gray-900/black) on light backgrounds
+  - White text on dark/colored backgrounds
+  - Proper dark mode support maintained
+
 ### Added
 - **Duolingo-style animations**: Implemented bouncy spring animations throughout the site
   - Spring-based transitions with optimized stiffness and damping

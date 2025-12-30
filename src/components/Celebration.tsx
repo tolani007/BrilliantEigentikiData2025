@@ -23,8 +23,8 @@ const Celebration: React.FC<CelebrationProps> = ({ message, onComplete }) => {
         >
           🎉
         </motion.div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Congratulations!</h2>
-        <p className="text-gray-600 mb-6">{message}</p>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Congratulations!</h2>
+        <p className="text-gray-800 dark:text-gray-200 mb-6">{message}</p>
         {onComplete && (
           <button
             onClick={onComplete}

@@ -65,6 +65,47 @@ html, body {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Optimized scroll animations - fast and smooth */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Fast scroll animations */
+.scroll-fade-in {
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.scroll-scale-in {
+  animation: fadeInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Optimize animation performance */
+[data-animate] {
+  will-change: transform, opacity;
+}
+
+[data-animate]:not(.is-visible) {
+  opacity: 0;
+}
+
 /* Optimize card animations */
 section {
   contain: layout style paint;

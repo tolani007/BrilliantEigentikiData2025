@@ -25,14 +25,26 @@ const StreakDisplay: React.FC<StreakDisplayProps> = ({
   });
 
   return (
-    <div ref={ref} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl transition-all border border-white/20 dark:border-gray-700/50">
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">Learning Streaks</h2>
+    <motion.div 
+      ref={ref} 
+      className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-8 shadow-xl transition-all border border-white/30 dark:border-gray-700/50 relative overflow-hidden group"
+      style={{
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
+      }}
+      whileHover={{ scale: 1.01 }}
+      transition={{ duration: 0.3 }}
+    >
+      {/* Liquid glass shimmer */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+      </div>
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 relative z-10">Learning Streaks</h2>
       
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
+          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           className="bg-gradient-to-br from-duolingo-green to-duolingo-darkGreen rounded-xl p-6 text-white"
         >
           <div className="text-sm font-medium mb-2">Longest Streak</div>
@@ -43,7 +55,7 @@ const StreakDisplay: React.FC<StreakDisplayProps> = ({
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
+          transition={{ duration: 0.3, delay: 0.08, ease: [0.25, 0.1, 0.25, 1] }}
           className="bg-gradient-to-br from-brilliant-blue to-brilliant-darkBlue rounded-xl p-6 text-white"
         >
           <div className="text-sm font-medium mb-2">Total Streaks</div>
@@ -53,15 +65,15 @@ const StreakDisplay: React.FC<StreakDisplayProps> = ({
       </div>
 
       {/* Streak visualization */}
-      <div className="mt-8">
-        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Streak Timeline</h3>
+      <div className="mt-8 relative z-10">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-200 mb-4">Streak Timeline</h3>
         <div className="space-y-3">
           {streakDays.slice(0, 5).map((streak, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.3, delay: 0.2 + index * 0.05, ease: 'easeOut' }}
+              transition={{ duration: 0.25, delay: 0.15 + index * 0.03, ease: [0.25, 0.1, 0.25, 1] }}
               className="flex items-center"
             >
               <div className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
@@ -69,17 +81,17 @@ const StreakDisplay: React.FC<StreakDisplayProps> = ({
                   className="bg-duolingo-green h-full rounded-full"
                   initial={{ width: 0 }}
                   animate={isInView ? { width: `${Math.min((streak.days / longestStreak) * 100, 100)}%` } : {}}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.05, ease: 'easeOut' }}
+                  transition={{ duration: 0.5, delay: 0.25 + index * 0.03, ease: [0.25, 0.1, 0.25, 1] }}
                 />
               </div>
-              <span className="ml-4 text-sm text-gray-600 dark:text-gray-400 font-medium min-w-[100px]">
+              <span className="ml-4 text-sm text-gray-900 dark:text-gray-200 font-semibold min-w-[100px]">
                 {streak.days} days
               </span>
             </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

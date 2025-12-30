@@ -26,7 +26,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.3, delay: index * 0.05, ease: 'easeOut' }}
+      transition={{ duration: 0.25, delay: index * 0.03, ease: [0.25, 0.1, 0.25, 1] }}
       whileHover={{ 
         scale: 1.03, 
         y: -8,
@@ -57,7 +57,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
       </div>
       
       <div className="mb-4 relative z-10">
-        <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-2 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+        <div className="flex justify-between text-sm text-gray-700 dark:text-gray-300 mb-2 font-semibold group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
           <span>Progress</span>
           <span>{course.completed_lessons} / {course.total_lessons} lessons</span>
         </div>
@@ -66,7 +66,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
             className={`h-full ${color} rounded-full relative`}
             initial={{ width: 0 }}
             animate={isInView ? { width: `${course.percent_complete}%` } : {}}
-            transition={{ duration: 0.6, delay: 0.1 + index * 0.05, ease: 'easeOut' }}
+            transition={{ duration: 0.5, delay: 0.08 + index * 0.03, ease: [0.25, 0.1, 0.25, 1] }}
           >
             {/* Shimmer effect on hover */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-300 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
@@ -75,7 +75,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
       </div>
 
       {course.last_active_ts && (
-        <p className="text-xs text-gray-500 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors relative z-10">
+        <p className="text-xs text-gray-800 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors relative z-10">
           Last active: {new Date(course.last_active_ts).toLocaleDateString()}
         </p>
       )}

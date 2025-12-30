@@ -26,7 +26,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     <div className="mb-6">
       <div className="flex justify-between items-center mb-2">
         <span className="text-gray-700 font-medium">{label}</span>
-        <span className="text-gray-600 font-semibold">{percentage}%</span>
+        <span className="text-gray-900 dark:text-gray-100 font-semibold">{percentage}%</span>
       </div>
       <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
         <motion.div

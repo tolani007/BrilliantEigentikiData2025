@@ -53,13 +53,13 @@ const ProblemStats: React.FC<ProblemStatsProps> = ({
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
       </div>
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 relative z-10">Problem Solving Stats</h2>
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 relative z-10">Problem Solving Stats</h2>
       
       <div className="grid md:grid-cols-3 gap-6 mb-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+          transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
           whileHover={{ scale: 1.05, y: -5, boxShadow: '0 20px 40px rgba(74, 144, 226, 0.3)' }}
           whileTap={{ scale: 0.95 }}
           className="bg-gradient-to-br from-brilliant-blue to-brilliant-darkBlue rounded-xl p-6 text-white cursor-pointer relative overflow-hidden group/card"
@@ -74,7 +74,7 @@ const ProblemStats: React.FC<ProblemStatsProps> = ({
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.3, delay: 0.05, ease: 'easeOut' }}
+          transition={{ duration: 0.25, delay: 0.04, ease: [0.25, 0.1, 0.25, 1] }}
           whileHover={{ scale: 1.05, y: -5, boxShadow: '0 20px 40px rgba(88, 204, 2, 0.3)' }}
           whileTap={{ scale: 0.95 }}
           className="bg-gradient-to-br from-duolingo-green to-duolingo-darkGreen rounded-xl p-6 text-white cursor-pointer relative overflow-hidden group/card"
@@ -110,7 +110,7 @@ const ProblemStats: React.FC<ProblemStatsProps> = ({
           whileHover={{ scale: 1.02 }}
           className="relative group/chart"
         >
-          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4 relative z-10">Monthly Activity</h3>
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-200 mb-4 relative z-10">Monthly Activity</h3>
           <div className="relative">
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={monthlyData}>
@@ -142,11 +142,11 @@ const ProblemStats: React.FC<ProblemStatsProps> = ({
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.3, delay: 0.15, ease: 'easeOut' }}
+          transition={{ duration: 0.25, delay: 0.12, ease: [0.25, 0.1, 0.25, 1] }}
           whileHover={{ scale: 1.02 }}
           className="relative group/chart"
         >
-          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4 relative z-10">Accuracy Breakdown</h3>
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-200 mb-4 relative z-10">Accuracy Breakdown</h3>
           <div className="relative">
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>

@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={reduceMotion ? { duration: 0.1 } : { delay: 0.45, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         >
-          <p className="text-xl md:text-2xl text-white/90 mb-8">
+          <p className="text-xl md:text-2xl text-white font-medium mb-8 drop-shadow-lg">
             Your Brilliant Learning Journey
           </p>
         </motion.div>

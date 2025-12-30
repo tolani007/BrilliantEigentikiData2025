@@ -34,8 +34,8 @@ const StatCard: React.FC<StatCardProps> = ({
         return;
       }
       
-      const duration = getAnimationDuration(1500); // Reduced for snappier feel
-      const steps = 30; // Reduced steps for better performance
+      const duration = getAnimationDuration(1000); // Faster for snappier feel
+      const steps = 25; // Optimized steps for better performance
       const increment = value / steps;
       let current = 0;
       const timer = setInterval(() => {
@@ -64,7 +64,7 @@ const StatCard: React.FC<StatCardProps> = ({
       ref={ref}
       initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={reduceMotion ? { duration: 0.1 } : { duration: 0.4, delay, ease: 'easeOut' }}
+      transition={reduceMotion ? { duration: 0.1 } : { duration: 0.3, delay, ease: [0.25, 0.1, 0.25, 1] }}
       whileHover={{ 
         scale: 1.03, 
         y: -5,
@@ -81,7 +81,7 @@ const StatCard: React.FC<StatCardProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
       </div>
       <div className="flex items-center justify-between mb-4 relative z-10">
-        <h3 className="text-gray-600 dark:text-gray-400 text-sm font-medium uppercase tracking-wide group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">
+        <h3 className="text-gray-700 dark:text-gray-300 text-sm font-semibold uppercase tracking-wide group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
           {title}
         </h3>
         {icon && (
@@ -105,7 +105,7 @@ const StatCard: React.FC<StatCardProps> = ({
           {displayValue.toLocaleString()}
         </motion.span>
         {suffix && (
-          <span className="text-xl text-gray-500 dark:text-gray-400 ml-2 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">{suffix}</span>
+          <span className="text-xl text-gray-700 dark:text-gray-300 ml-2 font-semibold group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{suffix}</span>
         )}
       </div>
     </motion.div>

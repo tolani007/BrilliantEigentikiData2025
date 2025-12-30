@@ -91,8 +91,8 @@ const Timeline: React.FC<TimelineProps> = ({ dailyActivity, monthlyActivity }) =
                   {/* Shimmer effect on hover */}
                   <div className="absolute inset-0 opacity-0 group-hover/bar:opacity-30 transition-opacity duration-300 bg-gradient-to-t from-transparent via-white/50 to-transparent"></div>
                 </motion.div>
-                <div className="text-xs text-gray-700 dark:text-gray-300 mt-2 font-semibold">{monthName}</div>
-                <div className="text-xs text-gray-800 dark:text-gray-200 font-bold">{item.count}</div>
+                <div className="text-xs text-gray-900 dark:text-gray-300 mt-2 font-semibold">{monthName}</div>
+                <div className="text-xs text-gray-900 dark:text-gray-200 font-bold">{item.count}</div>
               </motion.div>
             );
           })}
@@ -124,13 +124,13 @@ const Timeline: React.FC<TimelineProps> = ({ dailyActivity, monthlyActivity }) =
                 className={`aspect-square ${activity.color} rounded relative group cursor-pointer transition-all border-2 border-transparent hover:border-white/50 dark:hover:border-gray-300/50`}
                 title={`${dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}: ${count} ${count === 1 ? 'activity' : 'activities'} - ${activity.label}`}
               >
-                <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-gray-700 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-0 group-hover:scale-110">
+                <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-gray-900 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-0 group-hover:scale-110">
                   {count > 0 && count}
                 </div>
                 {/* Hover glow effect */}
                 <div className="absolute inset-0 rounded opacity-0 group-hover:opacity-30 transition-opacity duration-200 bg-white blur-sm"></div>
                 {index < 7 && (
-                  <div className="absolute -top-5 left-0 right-0 text-center text-xs text-gray-800 dark:text-gray-300 font-semibold">
+                  <div className="absolute -top-5 left-0 right-0 text-center text-xs text-gray-900 dark:text-gray-300 font-semibold">
                     {dayName}
                   </div>
                 )}
@@ -138,7 +138,7 @@ const Timeline: React.FC<TimelineProps> = ({ dailyActivity, monthlyActivity }) =
             );
           })}
         </div>
-        <div className="flex items-center justify-between text-sm text-gray-800 dark:text-gray-300 font-medium relative z-10">
+        <div className="flex items-center justify-between text-sm text-gray-900 dark:text-gray-300 font-medium relative z-10">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-gray-200 dark:bg-gray-700 rounded"></div>

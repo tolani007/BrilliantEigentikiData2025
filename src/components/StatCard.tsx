@@ -86,7 +86,7 @@ const StatCard: React.FC<StatCardProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
       </div>
       <div className="flex items-center justify-between mb-4 relative z-10">
-        <h3 className="text-gray-700 dark:text-gray-300 text-sm font-semibold uppercase tracking-wide group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+        <h3 className="text-gray-900 dark:text-gray-300 text-sm font-semibold uppercase tracking-wide group-hover:text-black dark:group-hover:text-white transition-colors">
           {title}
         </h3>
         {icon && (
@@ -101,7 +101,7 @@ const StatCard: React.FC<StatCardProps> = ({
       </div>
       <div className="flex items-baseline relative z-10">
         <motion.span
-          className="text-4xl font-bold text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white transition-colors"
+          className="text-4xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors"
           key={displayValue}
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -110,7 +110,7 @@ const StatCard: React.FC<StatCardProps> = ({
           {displayValue.toLocaleString()}
         </motion.span>
         {suffix && (
-          <span className="text-xl text-gray-700 dark:text-gray-300 ml-2 font-semibold group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{suffix}</span>
+          <span className="text-xl text-gray-900 dark:text-gray-300 ml-2 font-semibold group-hover:text-black dark:group-hover:text-white transition-colors">{suffix}</span>
         )}
       </div>
     </motion.div>

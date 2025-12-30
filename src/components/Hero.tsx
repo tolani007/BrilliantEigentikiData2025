@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
               ease: 'easeInOut',
             }}
           >
-            <span className="relative z-10 drop-shadow-sm font-extrabold">Explore Your Stats</span>
+            <span className="relative z-10 drop-shadow-sm font-extrabold text-gray-900">Explore Your Stats</span>
             {/* Shimmer effect */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>

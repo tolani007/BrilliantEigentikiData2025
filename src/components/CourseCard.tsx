@@ -42,7 +42,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
       </div>
       <div className="flex items-center justify-between mb-4 relative z-10">
-        <h3 className="text-xl font-bold text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
           Course #{course.course_info_id}
         </h3>
         <motion.div 
@@ -55,7 +55,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
       </div>
       
       <div className="mb-4 relative z-10">
-        <div className="flex justify-between text-sm text-gray-700 dark:text-gray-300 mb-2 font-semibold group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+        <div className="flex justify-between text-sm text-gray-900 dark:text-gray-300 mb-2 font-semibold group-hover:text-black dark:group-hover:text-white transition-colors">
           <span>Progress</span>
           <span>{course.completed_lessons} / {course.total_lessons} lessons</span>
         </div>
@@ -73,7 +73,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index }) => {
       </div>
 
       {course.last_active_ts && (
-        <p className="text-xs text-gray-800 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors relative z-10">
+        <p className="text-xs text-gray-900 dark:text-gray-300 font-medium group-hover:text-black dark:group-hover:text-gray-100 transition-colors relative z-10">
           Last active: {new Date(course.last_active_ts).toLocaleDateString()}
         </p>
       )}

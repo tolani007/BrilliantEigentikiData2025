@@ -94,7 +94,7 @@ const App: React.FC = () => {
 
       {/* Overview Stats Section */}
       <SectionWrapper>
-        <section className="py-20 px-4 bg-gradient-to-b from-green-50/50 via-white/30 to-white/50 dark:from-gray-900/50 dark:via-gray-800/30 dark:to-gray-900/50 backdrop-blur-sm transition-all">
+        <section className="py-20 px-4 bg-gradient-to-b from-yellow-50/80 via-amber-50/60 to-yellow-50/80 dark:from-gray-950/90 dark:via-gray-900/80 dark:to-gray-950/90 backdrop-blur-sm transition-all">
           <div className="max-w-7xl mx-auto">
             <SectionTitle>
               Your 2025 Learning Summary
@@ -160,7 +160,7 @@ const App: React.FC = () => {
 
       {/* Timeline Section */}
       <SectionWrapper>
-        <section className="py-20 px-4 bg-gradient-to-b from-white/50 via-green-50/30 to-white/50 dark:from-gray-800/50 dark:via-gray-900/30 dark:to-gray-800/50 backdrop-blur-sm transition-all">
+        <section className="py-20 px-4 bg-gradient-to-b from-amber-50/70 via-yellow-50/50 to-amber-50/70 dark:from-gray-950/80 dark:via-gray-900/70 dark:to-gray-950/80 backdrop-blur-sm transition-all">
           <div className="max-w-7xl mx-auto">
             <Suspense fallback={<div className="h-96 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse"></div>}>
               <Timeline
@@ -174,7 +174,7 @@ const App: React.FC = () => {
 
       {/* Problem Stats Section */}
       <SectionWrapper>
-        <section className="py-20 px-4 bg-gradient-to-b from-green-50/50 via-white/30 to-white/50 dark:from-gray-900/50 dark:via-gray-800/30 dark:to-gray-900/50 backdrop-blur-sm transition-all">
+        <section className="py-20 px-4 bg-gradient-to-b from-yellow-50/80 via-amber-50/60 to-yellow-50/80 dark:from-gray-950/90 dark:via-gray-900/80 dark:to-gray-950/90 backdrop-blur-sm transition-all">
           <div className="max-w-7xl mx-auto">
             <Suspense fallback={<div className="h-96 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse"></div>}>
               <ProblemStats
@@ -190,7 +190,7 @@ const App: React.FC = () => {
 
       {/* Streaks Section */}
       <SectionWrapper>
-        <section className="py-20 px-4 bg-gradient-to-b from-white/50 via-green-50/30 to-white/50 dark:from-gray-800/50 dark:via-gray-900/30 dark:to-gray-800/50 backdrop-blur-sm transition-all">
+        <section className="py-20 px-4 bg-gradient-to-b from-amber-50/70 via-yellow-50/50 to-amber-50/70 dark:from-gray-950/80 dark:via-gray-900/70 dark:to-gray-950/80 backdrop-blur-sm transition-all">
           <div className="max-w-7xl mx-auto">
             <Suspense fallback={<div className="h-96 bg-gray-200 dark:bg-gray-700 rounded-2xl animate-pulse"></div>}>
               <StreakDisplay
@@ -205,7 +205,7 @@ const App: React.FC = () => {
 
       {/* Courses Section */}
       <SectionWrapper>
-        <section className="py-20 px-4 bg-gradient-to-b from-green-50/50 via-white/30 to-white/50 dark:from-gray-900/50 dark:via-gray-800/30 dark:to-gray-900/50 backdrop-blur-sm transition-all">
+        <section className="py-20 px-4 bg-gradient-to-b from-yellow-50/80 via-amber-50/60 to-yellow-50/80 dark:from-gray-950/90 dark:via-gray-900/80 dark:to-gray-950/90 backdrop-blur-sm transition-all">
           <div className="max-w-7xl mx-auto">
             <SectionTitle>
               Your Active Courses
@@ -232,11 +232,11 @@ const App: React.FC = () => {
             You've made incredible progress this year. Keep up the amazing work and continue your learning journey!
           </p>
           <div className="flex justify-center gap-4">
-            <div className="bg-white/90 dark:bg-white/20 rounded-lg p-4 backdrop-blur-md border border-white/50 dark:border-white/30 shadow-lg">
+            <div className="bg-yellow-50/95 dark:bg-gray-950/80 rounded-lg p-4 backdrop-blur-md border border-amber-200/50 dark:border-gray-800/50 shadow-lg">
               <div className="text-3xl font-bold text-gray-900 dark:text-white">{summary.active_days}</div>
               <div className="text-sm text-gray-900 dark:text-white font-semibold">Active Days</div>
             </div>
-            <div className="bg-white/90 dark:bg-white/20 rounded-lg p-4 backdrop-blur-md border border-white/50 dark:border-white/30 shadow-lg">
+            <div className="bg-yellow-50/95 dark:bg-gray-950/80 rounded-lg p-4 backdrop-blur-md border border-amber-200/50 dark:border-gray-800/50 shadow-lg">
               <div className="text-3xl font-bold text-gray-900 dark:text-white">{summary.total_courses_active}</div>
               <div className="text-sm text-gray-900 dark:text-white font-semibold">Active Courses</div>
             </div>

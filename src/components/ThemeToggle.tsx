@@ -13,7 +13,7 @@ const ThemeToggle: React.FC = () => {
         playClickSound();
         toggleTheme();
       }}
-      className="fixed top-6 right-6 z-50 p-3 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-md shadow-lg hover:shadow-xl transition-all border border-white/50 dark:border-gray-700/50"
+      className="fixed top-6 right-6 z-50 p-3 rounded-full bg-yellow-50/95 dark:bg-gray-950/95 backdrop-blur-md shadow-lg hover:shadow-xl transition-all border border-amber-200/50 dark:border-gray-800/50"
       whileHover={duolingoHover}
       whileTap={duolingoTap}
       onHoverStart={() => playClickSound()}

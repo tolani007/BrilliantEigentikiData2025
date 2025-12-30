@@ -76,7 +76,7 @@ const StatCard: React.FC<StatCardProps> = ({
           playSuccessSound();
         }
       }}
-      className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border border-white/30 dark:border-gray-700/50 relative overflow-hidden group cursor-pointer"
+      className="bg-yellow-50/95 dark:bg-gray-950/95 backdrop-blur-xl rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border border-amber-200/50 dark:border-gray-800/50 relative overflow-hidden group cursor-pointer"
       style={{
         background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
       }}

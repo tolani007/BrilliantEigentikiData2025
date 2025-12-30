@@ -27,7 +27,7 @@ const StreakDisplay: React.FC<StreakDisplayProps> = ({
   return (
     <motion.div 
       ref={ref} 
-      className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-8 shadow-xl transition-all border border-white/30 dark:border-gray-700/50 relative overflow-hidden group"
+      className="bg-yellow-50/95 dark:bg-gray-950/95 backdrop-blur-xl rounded-2xl p-8 shadow-xl transition-all border border-amber-200/50 dark:border-gray-800/50 relative overflow-hidden group"
       style={{
         background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
       }}

@@ -4,13 +4,15 @@ An animated, interactive year-in-review presentation that transforms your Brilli
 
 ## 🌐 Live Demo
 
+**🚀 Live Site:** [https://bed2025-ten.vercel.app](https://bed2025-ten.vercel.app)
+
 **Repository:** [https://github.com/tolani007/BrilliantEigentikiData2025](https://github.com/tolani007/BrilliantEigentikiData2025)
 
 **Deploy Now:**
 - [Deploy on Vercel](https://vercel.com/new/clone?repository-url=https://github.com/tolani007/BrilliantEigentikiData2025) (Recommended)
 - [Deploy on Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/tolani007/BrilliantEigentikiData2025)
 
-*After deployment, your site will be live and accessible to anyone!*
+*Your site is live and accessible to anyone!*
 
 ## 🎯 Overview
 

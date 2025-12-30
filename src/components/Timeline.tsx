@@ -44,8 +44,20 @@ const Timeline: React.FC<TimelineProps> = ({ dailyActivity, monthlyActivity }) =
   };
 
   return (
-    <div ref={ref} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl p-8 shadow-xl transition-all border border-white/20 dark:border-gray-700/50">
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">Activity Timeline</h2>
+    <motion.div 
+      ref={ref} 
+      className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-8 shadow-xl transition-all border border-white/30 dark:border-gray-700/50 relative overflow-hidden group"
+      style={{
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
+      }}
+      whileHover={{ scale: 1.01 }}
+      transition={{ duration: 0.3 }}
+    >
+      {/* Liquid glass shimmer */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+      </div>
+      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 relative z-10">Activity Timeline</h2>
       
       <div className="mb-8">
         <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Monthly Overview</h3>
@@ -62,14 +74,21 @@ const Timeline: React.FC<TimelineProps> = ({ dailyActivity, monthlyActivity }) =
                 transition={{ duration: 0.3, delay: index * 0.03 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-b-lg overflow-hidden relative" style={{ height: '150px' }}>
+                <motion.div 
+                  className="w-full bg-gray-200 dark:bg-gray-700 rounded-b-lg overflow-hidden relative group/bar cursor-pointer" 
+                  style={{ height: '150px' }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <motion.div
-                    className="w-full bg-gradient-to-b from-brilliant-blue to-brilliant-lightBlue rounded-b-lg absolute bottom-0"
+                    className="w-full bg-gradient-to-b from-brilliant-blue to-brilliant-lightBlue rounded-b-lg absolute bottom-0 group-hover/bar:from-brilliant-lightBlue group-hover/bar:to-brilliant-blue transition-all duration-300"
                     initial={{ height: 0 }}
                     animate={isInView ? { height: `${height}%` } : {}}
                     transition={{ duration: 0.6, delay: 0.1 + index * 0.03, ease: 'easeOut' }}
                   />
-                </div>
+                  {/* Shimmer effect on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover/bar:opacity-30 transition-opacity duration-300 bg-gradient-to-t from-transparent via-white/50 to-transparent"></div>
+                </motion.div>
                 <div className="text-xs text-gray-600 dark:text-gray-400 mt-2 font-medium">{monthName}</div>
                 <div className="text-xs text-gray-500 dark:text-gray-500 font-semibold">{item.count}</div>
               </motion.div>
@@ -92,12 +111,21 @@ const Timeline: React.FC<TimelineProps> = ({ dailyActivity, monthlyActivity }) =
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.2, delay: index * 0.005 }}
-                className={`aspect-square ${activity.color} rounded relative group cursor-pointer`}
+                whileHover={{ 
+                  scale: 1.15, 
+                  zIndex: 10,
+                  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ scale: 1.05 }}
+                className={`aspect-square ${activity.color} rounded relative group cursor-pointer transition-all border-2 border-transparent hover:border-white/50 dark:hover:border-gray-300/50`}
                 title={`${dateObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}: ${count} ${count === 1 ? 'activity' : 'activities'} - ${activity.label}`}
               >
-                <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-gray-700 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-gray-700 dark:text-gray-200 opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-0 group-hover:scale-110">
                   {count > 0 && count}
                 </div>
+                {/* Hover glow effect */}
+                <div className="absolute inset-0 rounded opacity-0 group-hover:opacity-30 transition-opacity duration-200 bg-white blur-sm"></div>
                 {index < 7 && (
                   <div className="absolute -top-5 left-0 right-0 text-center text-xs text-gray-500 dark:text-gray-400 font-medium">
                     {dayName}
@@ -132,7 +160,7 @@ const Timeline: React.FC<TimelineProps> = ({ dailyActivity, monthlyActivity }) =
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

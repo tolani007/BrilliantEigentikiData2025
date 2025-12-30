@@ -23,22 +23,48 @@ const App: React.FC = () => {
   useSmoothScroll();
 
   useEffect(() => {
-    // Load processed data
-    try {
-      setData(processedDataJson as ProcessedData);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error loading data:', error);
-      setLoading(false);
-    }
-  }, []);
+    // Load processed data with timeout fallback
+    const loadData = async () => {
+      try {
+        // Simulate a small delay to ensure proper initialization
+        await new Promise(resolve => setTimeout(resolve, 100));
+        setData(processedDataJson as ProcessedData);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error loading data:', error);
+        setLoading(false);
+      }
+    };
+
+    // Timeout after 5 seconds if data doesn't load
+    const timeout = setTimeout(() => {
+      if (loading) {
+        console.warn('Data loading timeout, attempting to continue...');
+        try {
+          setData(processedDataJson as ProcessedData);
+        } catch (e) {
+          console.error('Failed to load data:', e);
+        }
+        setLoading(false);
+      }
+    }, 5000);
+
+    loadData();
+    
+    return () => clearTimeout(timeout);
+  }, [loading]);
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" style={{
+      <div className="min-h-screen flex flex-col items-center justify-center dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" style={{
         background: 'linear-gradient(135deg, rgba(52, 211, 153, 1) 0%, rgba(34, 197, 94, 1) 35%, rgba(16, 185, 129, 1) 70%, rgba(5, 150, 105, 1) 100%)'
       }}>
-        <div className="text-white text-2xl font-semibold">Loading your year in review...</div>
+        <div className="relative">
+          <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mb-4"></div>
+          <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-white/60 rounded-full animate-spin" style={{ animationDirection: 'reverse', animationDuration: '0.8s' }}></div>
+        </div>
+        <div className="text-white text-2xl font-semibold mt-4">Loading your year in review...</div>
+        <div className="text-white/70 text-sm mt-2">This may take a moment</div>
       </div>
     );
   }

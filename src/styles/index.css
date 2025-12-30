@@ -75,6 +75,69 @@ section {
   contain: layout style paint;
 }
 
+/* Performance optimizations for low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Reduce motion class for programmatic control */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.2s !important;
+  transition-duration: 0.2s !important;
+}
+
+/* Disable backdrop blur on low-end devices */
+.no-backdrop-blur .backdrop-blur-xl,
+.no-backdrop-blur .backdrop-blur-md,
+.no-backdrop-blur .backdrop-blur-sm {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.dark .no-backdrop-blur .backdrop-blur-xl,
+.dark .no-backdrop-blur .backdrop-blur-md,
+.dark .no-backdrop-blur .backdrop-blur-sm {
+  background: rgba(31, 41, 55, 0.95) !important;
+}
+
+/* Optimize images and assets */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Reduce will-change usage on low-end devices */
+@media (max-width: 768px) {
+  .backdrop-blur-xl,
+  .backdrop-blur-md {
+    will-change: auto;
+  }
+}
+
+/* Touch optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Mobile devices */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Larger touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
 /* Glassmorphism utility classes */
 .glass {
   background: rgba(255, 255, 255, 0.1);

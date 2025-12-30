@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import BrilliantLogo from './BrilliantLogo';
+import { getParticleCount, shouldReduceAnimations } from '../utils/performance';
 
 const Hero: React.FC = () => {
+  const particleCount = useMemo(() => getParticleCount(8), []);
+  const reduceMotion = shouldReduceAnimations();
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-400 via-green-500 to-emerald-600 relative overflow-hidden" style={{
       background: 'linear-gradient(135deg, rgba(52, 211, 153, 1) 0%, rgba(34, 197, 94, 1) 35%, rgba(16, 185, 129, 1) 70%, rgba(5, 150, 105, 1) 100%)'
     }}>
       {/* Animated background elements - optimized for smooth performance */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(8)].map((_, i) => (
+        {[...Array(particleCount)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-3 h-3 bg-white/20 rounded-full backdrop-blur-sm"
@@ -17,12 +21,12 @@ const Hero: React.FC = () => {
               left: `${(i * 12.5) % 100}%`,
               top: `${(i * 15) % 100}%`,
             }}
-            animate={{
+            animate={reduceMotion ? {} : {
               y: [0, -30, 0],
               opacity: [0.2, 0.4, 0.2],
               scale: [1, 1.2, 1],
             }}
-            transition={{
+            transition={reduceMotion ? {} : {
               duration: 5 + i * 0.5,
               repeat: Infinity,
               delay: i * 0.3,
@@ -37,24 +41,24 @@ const Hero: React.FC = () => {
         <BrilliantLogo />
         
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          transition={reduceMotion ? { duration: 0.1 } : { duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         >
           <motion.h1
             className="text-6xl md:text-8xl font-bold text-white mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.15, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            transition={reduceMotion ? { duration: 0.1 } : { delay: 0.15, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
           >
             2025
           </motion.h1>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          transition={reduceMotion ? { duration: 0.1 } : { delay: 0.3, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="text-3xl md:text-5xl font-semibold text-white mb-2">
             Year in Review
@@ -62,9 +66,9 @@ const Hero: React.FC = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.45, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          transition={reduceMotion ? { duration: 0.1 } : { delay: 0.45, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         >
           <p className="text-xl md:text-2xl text-white/90 mb-8">
             Your Brilliant Learning Journey
@@ -72,9 +76,9 @@ const Hero: React.FC = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          transition={reduceMotion ? { duration: 0.1 } : { delay: 0.6, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           className="flex justify-center"
         >
           <motion.button
@@ -93,8 +97,8 @@ const Hero: React.FC = () => {
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        animate={reduceMotion ? {} : { y: [0, 10, 0] }}
+        transition={reduceMotion ? {} : { duration: 2, repeat: Infinity, ease: 'easeInOut' }}
       >
         <svg
           className="w-6 h-6 text-white"

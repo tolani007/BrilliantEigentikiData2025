@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { getAnimationDuration, shouldReduceAnimations } from '../utils/performance';
 
 interface StatCardProps {
   title: string;
@@ -23,9 +24,17 @@ const StatCard: React.FC<StatCardProps> = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
+  const reduceMotion = shouldReduceAnimations();
+
   useEffect(() => {
     if (isInView) {
-      const duration = 1500; // Reduced for snappier feel
+      if (reduceMotion) {
+        // Skip animation on low-end devices
+        setDisplayValue(value);
+        return;
+      }
+      
+      const duration = getAnimationDuration(1500); // Reduced for snappier feel
       const steps = 30; // Reduced steps for better performance
       const increment = value / steps;
       let current = 0;
@@ -40,7 +49,7 @@ const StatCard: React.FC<StatCardProps> = ({
       }, duration / steps);
       return () => clearInterval(timer);
     }
-  }, [isInView, value]);
+  }, [isInView, value, reduceMotion]);
 
   const colorClasses: Record<string, string> = {
     'brilliant-blue': 'bg-brilliant-blue',
@@ -53,9 +62,9 @@ const StatCard: React.FC<StatCardProps> = ({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
+      initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.4, delay, ease: 'easeOut' }}
+      transition={reduceMotion ? { duration: 0.1 } : { duration: 0.4, delay, ease: 'easeOut' }}
       className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all border border-white/20 dark:border-gray-700/50"
     >
       <div className="flex items-center justify-between mb-4">

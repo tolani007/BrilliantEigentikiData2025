@@ -4,6 +4,7 @@ import ThemeToggle from './components/ThemeToggle';
 import { ProcessedData } from './types';
 import processedDataJson from './data/processed-data.json';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
+import { PerformanceWrapper } from './components/PerformanceWrapper';
 
 // Lazy load components for better performance
 const Hero = lazy(() => import('./components/Hero'));
@@ -55,8 +56,9 @@ const App: React.FC = () => {
   const { summary, streaks, courses } = data;
 
   return (
-    <div className={`min-h-screen transition-colors ${isDark ? 'dark' : ''}`}>
-      <ThemeToggle />
+    <PerformanceWrapper>
+      <div className={`min-h-screen transition-colors ${isDark ? 'dark' : ''}`}>
+        <ThemeToggle />
       {/* Hero Section */}
       <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="text-white">Loading...</div></div>}>
         <Hero />
@@ -202,7 +204,8 @@ const App: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </PerformanceWrapper>
   );
 };
 

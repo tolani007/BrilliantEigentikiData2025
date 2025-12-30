@@ -67,6 +67,10 @@ const BrilliantLogo: React.FC = () => {
           className="w-32 h-32 md:w-40 md:h-40 relative z-10"
           style={{
             filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.4))',
+            display: 'block',
+          }}
+          onError={(e) => {
+            console.error('Failed to load logo image');
           }}
           animate={{
             rotateY: [0, 5, 0],

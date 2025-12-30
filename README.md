@@ -1,6 +1,12 @@
-# Year in Review - Brilliant.org Learning Journey
+# BrilliantEigentikiData2025 - Year in Review
 
-An animated, interactive year-in-review presentation that transforms your Brilliant.org learning data into a beautiful, engaging visualization. Styled after Brilliant and Duolingo apps with smooth animations, colorful design, and comprehensive statistics.
+An animated, interactive year-in-review presentation that transforms your Brilliant.org learning data into a beautiful, engaging visualization. Styled after Brilliant and Duolingo apps with smooth animations, liquid glass design, dark mode, and comprehensive statistics.
+
+## 🌐 Live Demo
+
+**View the live deployment:** [Deploy on Vercel](https://vercel.com) | [Deploy on Netlify](https://netlify.com)
+
+*Note: After pushing to GitHub, you can deploy using the buttons below or follow the deployment instructions.*
 
 ## 🎯 Overview
 
@@ -63,7 +69,28 @@ year-in-review/
 └── README.md                    # This file
 ```
 
-## 🚀 Getting Started
+## 🚀 Quick Start & Deployment
+
+### Option 1: Deploy to Vercel (Recommended)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/BrilliantEigentikiData2025)
+
+1. Click the button above or visit [Vercel](https://vercel.com)
+2. Import your GitHub repository
+3. Vercel will automatically detect React and deploy
+4. Your site will be live at `https://your-project.vercel.app`
+
+### Option 2: Deploy to Netlify
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/YOUR_USERNAME/BrilliantEigentikiData2025)
+
+1. Click the button above or visit [Netlify](https://netlify.com)
+2. Connect your GitHub repository
+3. Build command: `npm run build`
+4. Publish directory: `build`
+5. Deploy!
+
+### Option 3: Local Development
 
 ### Prerequisites
 

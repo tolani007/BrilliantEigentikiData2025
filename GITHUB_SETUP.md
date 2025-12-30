@@ -1,8 +1,8 @@
 # GitHub Setup Instructions
 
-## Preparing for GitHub Push
+## ✅ Git Repository Ready!
 
-Your project is ready to push to GitHub! The `.gitignore` file has been configured to exclude your personal data folders.
+Your project has been initialized and committed. Ready to push to GitHub!
 
 ### Excluded from Repository:
 - `../analytics/` - Your analytics data (not included)
@@ -16,39 +16,31 @@ Your project is ready to push to GitHub! The `.gitignore` file has been configur
 - Documentation
 - Data processing script
 - Processed data file (your statistics)
+- Deployment configurations
 
 ## Steps to Push to GitHub
 
-### 1. Initialize Git Repository (if not already done)
+### 1. Create GitHub Repository
+1. Go to https://github.com/new
+2. Repository name: **BrilliantEigentikiData2025**
+3. Description: "Animated Year in Review presentation for Brilliant.org learning data"
+4. Set to **Public** (or Private if you prefer)
+5. **DO NOT** initialize with README, .gitignore, or license (we already have these)
+6. Click "Create repository"
+
+### 2. Connect and Push
 ```bash
 cd "/Users/tiki/Desktop/machine learning hub/data/year-in-review"
-git init
-```
 
-### 2. Add All Files
-```bash
-git add .
-```
-
-### 3. Create Initial Commit
-```bash
-git commit -m "Initial commit: Year in Review presentation with dark mode and optimizations"
-```
-
-### 4. Create GitHub Repository
-1. Go to https://github.com/new
-2. Create a new repository (e.g., `year-in-review-brilliant`)
-3. **DO NOT** initialize with README, .gitignore, or license (we already have these)
-
-### 5. Connect and Push
-```bash
 # Add your GitHub repository as remote
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git remote add origin https://github.com/YOUR_USERNAME/BrilliantEigentikiData2025.git
 
 # Push to GitHub
 git branch -M main
 git push -u origin main
 ```
+
+Replace `YOUR_USERNAME` with your actual GitHub username.
 
 ## What Gets Pushed
 

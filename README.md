@@ -4,9 +4,13 @@ An animated, interactive year-in-review presentation that transforms your Brilli
 
 ## 🌐 Live Demo
 
-**View the live deployment:** [Deploy on Vercel](https://vercel.com) | [Deploy on Netlify](https://netlify.com)
+**Repository:** [https://github.com/tolani007/BrilliantEigentikiData2025](https://github.com/tolani007/BrilliantEigentikiData2025)
 
-*Note: After pushing to GitHub, you can deploy using the buttons below or follow the deployment instructions.*
+**Deploy Now:**
+- [Deploy on Vercel](https://vercel.com/new/clone?repository-url=https://github.com/tolani007/BrilliantEigentikiData2025) (Recommended)
+- [Deploy on Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/tolani007/BrilliantEigentikiData2025)
+
+*After deployment, your site will be live and accessible to anyone!*
 
 ## 🎯 Overview
 
@@ -73,7 +77,7 @@ year-in-review/
 
 ### Option 1: Deploy to Vercel (Recommended)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/BrilliantEigentikiData2025)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tolani007/BrilliantEigentikiData2025)
 
 1. Click the button above or visit [Vercel](https://vercel.com)
 2. Import your GitHub repository
@@ -82,7 +86,7 @@ year-in-review/
 
 ### Option 2: Deploy to Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/YOUR_USERNAME/BrilliantEigentikiData2025)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/tolani007/BrilliantEigentikiData2025)
 
 1. Click the button above or visit [Netlify](https://netlify.com)
 2. Connect your GitHub repository
@@ -286,7 +290,7 @@ This project is ready to deploy! After pushing to GitHub, you can deploy on:
 4. Publish directory: `build`
 5. Deploy!
 
-**Live URL:** After deployment, update this README with your actual deployment URL.
+**Live URL:** Once deployed, your site will be available at a URL like `https://your-project.vercel.app` or `https://your-project.netlify.app`. Update this README with your actual deployment URL after deployment.
 
 For detailed instructions, see `DEPLOYMENT.md` or `QUICK_START.md`.
 

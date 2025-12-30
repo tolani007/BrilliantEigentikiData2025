@@ -79,10 +79,25 @@ year-in-review/
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/tolani007/BrilliantEigentikiData2025)
 
-1. Click the button above or visit [Vercel](https://vercel.com)
-2. Import your GitHub repository
-3. Vercel will automatically detect React and deploy
-4. Your site will be live at `https://your-project.vercel.app`
+**Method A: Via Vercel Dashboard (Recommended if button doesn't work)**
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click "Add New Project"
+3. Select the repository: `tolani007/BrilliantEigentikiData2025`
+4. Vercel will auto-detect React - just click "Deploy"
+5. Your site will be live in ~2 minutes!
+
+**Method B: Via Vercel CLI**
+```bash
+npm i -g vercel
+vercel
+```
+
+**Troubleshooting Vercel:**
+- If you see "Preparing Git Repository" error, try:
+  1. Wait a few minutes and try again (sometimes Vercel has temporary issues)
+  2. Use Method A above (dashboard import is more reliable)
+  3. Ensure your GitHub repository is public or you've granted Vercel access
+  4. Try deploying via Netlify as an alternative (see Option 2)
 
 ### Option 2: Deploy to Netlify
 
@@ -237,6 +252,21 @@ All components are in `src/components/` and can be customized:
 - Color-coded by course
 
 ## 🐛 Troubleshooting
+
+### Vercel Deployment Issues
+
+**"Preparing Git Repository" Error:**
+- This is usually a temporary Vercel issue. Try:
+  1. Wait 5-10 minutes and retry
+  2. Use Vercel Dashboard instead of the deploy button
+  3. Go to [vercel.com/new](https://vercel.com/new) and manually import the repo
+  4. Ensure your GitHub account is connected to Vercel
+  5. Check repository permissions in GitHub settings
+
+**Build Fails on Vercel:**
+- Ensure `package.json` has all dependencies listed
+- Check that `src/data/processed-data.json` exists (it's included in the repo)
+- Verify Node.js version (project requires Node 16+)
 
 ### Data not loading
 - Ensure `src/data/processed-data.json` exists

@@ -28,13 +28,17 @@ This project processes your Brilliant.org data export and creates an animated pr
 ## ✨ Features
 
 - **Animated Hero Section**: Eye-catching opening with smooth animations
+- **Scroll-Triggered Animations**: Sections animate as you scroll for engaging experience
 - **Interactive Statistics**: Animated counting numbers and progress bars
-- **Activity Timeline**: Visual heatmap and monthly activity charts
+- **Activity Timeline**: Visual heatmap and monthly activity charts with hover effects
 - **Streak Visualization**: Beautiful streak displays with timeline
 - **Course Progress**: Individual course cards with progress indicators
-- **Problem Statistics**: Charts showing problem-solving performance
+- **Problem Statistics**: Charts showing problem-solving performance with glass tooltips
+- **Liquid Glass Design**: Modern glassmorphism effects with shimmer animations
+- **Dark Mode**: Toggle between light and dark themes
 - **Responsive Design**: Works beautifully on desktop, tablet, and mobile
-- **Smooth Animations**: Powered by Framer Motion for fluid interactions
+- **Optimized Performance**: Fast, smooth animations optimized for all devices
+- **Enhanced Text Contrast**: Improved readability across all components
 
 ## 🛠️ Technologies
 
@@ -322,7 +326,11 @@ This project is ready to deploy! After pushing to GitHub, you can deploy on:
 4. Publish directory: `build`
 5. Deploy!
 
-**Live URL:** Once deployed, your site will be available at a URL like `https://your-project.vercel.app` or `https://your-project.netlify.app`. Update this README with your actual deployment URL after deployment.
+**Live URL:** Your site is automatically deployed and updates whenever you push to GitHub! 
+
+**Auto-Deployment:** Vercel automatically rebuilds and deploys your site whenever you push changes to the `main` branch. Just push to GitHub and your changes will be live in 1-2 minutes!
+
+For detailed deployment instructions, see `DEPLOYMENT.md` or `QUICK_START.md`.
 
 For detailed instructions, see `DEPLOYMENT.md` or `QUICK_START.md`.
 

@@ -1,0 +1,15 @@
+# Exclude data folders
+../analytics/
+../production/
+
+# Exclude documentation files (optional, but keeps repo clean)
+*.md
+!README.md
+
+# Exclude scripts that aren't needed for deployment
+scripts/
+*.sh
+
+# Exclude demo files
+demo.html
+

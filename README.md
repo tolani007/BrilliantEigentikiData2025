@@ -35,15 +35,18 @@ This project processes your Brilliant.org data export and creates an animated pr
 - **Course Progress**: Individual course cards with progress indicators
 - **Problem Statistics**: Charts showing problem-solving performance with glass tooltips
 - **Liquid Glass Design**: Modern glassmorphism effects with shimmer animations
+- **Duolingo-style Animations**: Bouncy spring animations with playful interactions
+- **Sound Effects**: Web Audio API-based sound feedback for all interactions
 - **Dark Mode**: Toggle between light and dark themes
 - **Responsive Design**: Works beautifully on desktop, tablet, and mobile
 - **Optimized Performance**: Fast, smooth animations optimized for all devices
-- **Enhanced Text Contrast**: Improved readability across all components
+- **Enhanced Text Contrast**: Maximum visibility with improved color choices
 
 ## 🛠️ Technologies
 
 - **React 18** with TypeScript
-- **Framer Motion** for animations
+- **Framer Motion** for Duolingo-style spring animations
+- **Web Audio API** for sound effects
 - **Tailwind CSS** for styling
 - **Recharts** for data visualizations
 - **Python 3** for data processing
@@ -230,10 +233,11 @@ All components are in `src/components/` and can be customized:
 - Call-to-action button
 
 ### Statistics Cards
-- Animated number counting
-- Icon support
+- Animated number counting with success sound on completion
+- Icon support with Duolingo-style hover animations
 - Color-coded by category
 - Scroll-triggered animations
+- Sound feedback on hover and interaction
 
 ### Timeline
 - Monthly activity bar chart

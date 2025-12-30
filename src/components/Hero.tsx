@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
           className="flex justify-center"
         >
           <motion.button
-            className="px-8 py-4 bg-white text-gray-900 rounded-full font-bold text-lg shadow-2xl border-2 border-white/50 hover:bg-gray-50 transition-all relative overflow-hidden group"
+            className="px-8 py-4 !bg-white dark:!bg-white !text-gray-900 dark:!text-gray-900 rounded-full font-bold text-lg shadow-2xl border-2 border-white/50 dark:border-white/50 hover:!bg-gray-50 dark:hover:!bg-gray-100 transition-all relative overflow-hidden group"
             whileHover={duolingoHover}
             whileTap={duolingoTap}
             onHoverStart={() => playClickSound()}

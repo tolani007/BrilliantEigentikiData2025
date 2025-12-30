@@ -232,13 +232,13 @@ const App: React.FC = () => {
             You've made incredible progress this year. Keep up the amazing work and continue your learning journey!
           </p>
           <div className="flex justify-center gap-4">
-            <div className="bg-white/20 rounded-lg p-4 backdrop-blur-md border border-white/30 shadow-lg">
-              <div className="text-3xl font-bold text-white">{summary.active_days}</div>
-              <div className="text-sm text-white">Active Days</div>
+            <div className="bg-white/90 dark:bg-white/20 rounded-lg p-4 backdrop-blur-md border border-white/50 dark:border-white/30 shadow-lg">
+              <div className="text-3xl font-bold text-gray-900 dark:text-white">{summary.active_days}</div>
+              <div className="text-sm text-gray-900 dark:text-white font-semibold">Active Days</div>
             </div>
-            <div className="bg-white/20 rounded-lg p-4 backdrop-blur-md border border-white/30 shadow-lg">
-              <div className="text-3xl font-bold text-white">{summary.total_courses_active}</div>
-              <div className="text-sm text-white">Active Courses</div>
+            <div className="bg-white/90 dark:bg-white/20 rounded-lg p-4 backdrop-blur-md border border-white/50 dark:border-white/30 shadow-lg">
+              <div className="text-3xl font-bold text-gray-900 dark:text-white">{summary.total_courses_active}</div>
+              <div className="text-sm text-gray-900 dark:text-white font-semibold">Active Courses</div>
             </div>
           </div>
         </div>

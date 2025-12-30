@@ -102,3 +102,4 @@ While you set up Node.js, you can view the demo:
 3. Run `npm start`
 4. Enjoy your fully animated year-in-review! 🎉
 
+

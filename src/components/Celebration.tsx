@@ -40,3 +40,4 @@ const Celebration: React.FC<CelebrationProps> = ({ message, onComplete }) => {
 
 export default Celebration;
 
+

@@ -145,3 +145,4 @@ npm run extract-data
 
 The MVP is complete and ready to showcase your 2025 learning journey!
 
+

@@ -56,3 +56,4 @@ export const shouldUseBackdropBlur = (): boolean => {
          CSS.supports('-webkit-backdrop-filter', 'blur(10px)');
 };
 
+

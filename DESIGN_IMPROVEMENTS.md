@@ -89,3 +89,4 @@ A modern, lightweight liquid glass design with:
 
 The app now has a state-of-the-art liquid glass aesthetic while maintaining excellent performance!
 
+
